@@ -1,0 +1,165 @@
+body {
+    padding-left: 50px;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #fff;
+}
+
+header {
+    background-color: #FF6A00;
+    color: white;
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: -50px;
+}
+
+header h1 {
+    margin: 0;
+    flex-grow: 1;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+nav a.active {
+    border-bottom: 2px solid #802000; 
+}
+
+.icons {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icons span {
+    cursor: pointer;
+}
+
+.product-container {
+    display: flex;
+    padding: 20px;
+    align-items: flex-start;
+}
+
+.image-gallery {
+    text-align: left;
+}
+
+.image-gallery-main {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 5px;
+}
+
+.image-gallery-thumbnails {
+    display: flex;
+    justify-content: center;
+}
+
+.thumbnail {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 60px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.product-details {
+    max-width: 300px;
+    margin-left: 20px;
+}
+
+.product-details h2 {
+    color: #333;
+}
+
+.product-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.product-details ul li {
+    margin-bottom: 5px;
+}
+
+.price {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.add-to-cart-btn {
+    background-color: #FF6A00;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.product-description {
+    padding: 20px;
+}
+
+.tab {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.arrow {
+    cursor: pointer;
+    font-size: 24px;
+    user-select: none;
+    color: #333;
+}
+
+.product-tabs {
+    margin-top: 20px;
+    border-radius: 4px;
+}
+
+.tab-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.tab-links li {
+    float: left;
+}
+
+.tab-links li a {
+    display: inline-block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.tab-links li a.active {
+    background-color: white;
+    color: #FF6A00;
+    border-bottom: 2px solid #FF6A00;
+}
+
+.tab-content {
+    padding: 20px;
+    background-color: white;
+    border-top: none;
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DShop - Філаменти</title>
+</head>
+
+<body>
+
+    <header style="background-color: #FF6A00;">
+        <h1>3DShop</h1>
+        <div>
+            <nav>
+                <a href="#">Каталог</a>
+                <a href="#">Про нас</a>
+            </nav>
+            <div class="icons">
+                <span class="icon">🔍</span>
+                <span class="icon">❤️</span>
+                <span class="icon">🛍️</span>
+            </div>
+        </div>
+    </header>
+
+    <h2>Товари в категорії: Філаменти</h2>
+
+    <div style="display: flex;">
+        <div style="flex: 1; margin-right: 20px; background-color: #FFF; padding: 15px;">
+            <label>Ціна:
+                <input type="range" min="70" max="485">
+            </label>
+            <label>Тип принтера:
+                <select>
+                    <option>Виберіть тип</option>
+                </select>
+            </label>
+            <label>Колір:
+                <select>
+                    <option>Виберіть колір</option>
+                </select>
+            </label>
+            <button>Filter</button>
+        </div>
+
+        <!-- Товари -->
+        <div style="flex: 3; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+            <div style="border: 1px solid #E5E5E5; padding: 20px; background-color: #FFF;">
+                <img src="DefaultImage.png" alt="Зображення товару">
+                <h3>Назва товару</h3>
+                <p>280 ₴</p>
+                <p>Короткий опис товару Короткий опис товару</p>
+            </div>
+            <div style="border: 1px solid #E5E5E5; padding: 20px; background-color: #FFF;">
+                <img src="DefaultImage.png" alt="Зображення товару">
+                <h3>Назва товару</h3>
+                <p>280 ₴</p>
+                <p>Короткий опис товару Короткий опис товару</p>
+            </div>
+            <div style="border: 1px solid #E5E5E5; padding: 20px; background-color: #FFF;">
+                <img src="DefaultImage.png" alt="Зображення товару">
+                <h3>Назва товару</h3>
+                <p>280 ₴</p>
+                <p>Короткий опис товару Короткий опис товару</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
