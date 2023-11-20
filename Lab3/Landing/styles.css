@@ -68,20 +68,6 @@ form {
     background-color: #f7f7f7;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table, th, td {
-    border: 1px solid black;
-}
-
-th, td {
-    padding: 10px;
-    text-align: left;
-}
-
 caption {
     font-size: 1.5em;
     margin-bottom: 10px;
