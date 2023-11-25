@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DShop - Сопло MK10 M7</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #cart {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        #cart-count {
+            font-weight: bold;
+        }
+
+        #cart:hover .cart-dropdown {
+            display: block;
+        }
+
+        #cart-items li {
+            padding: 10px;
+            list-style: none;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .cart-dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #f9f9f9;
+            min-width: 300px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            color: black;
+            border-radius: 10px;
+            padding: 15px; 
+        }
+
+        .cart-checkout-btn {
+            background-color: #e65c00; 
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px; 
+            text-align: center;
+            display: block;
+            margin: 10px auto 0 auto;
+            width: 90%; 
+            transition: background-color 0.3s;
+        }
+
+        .remove-item-btn {
+            padding: 2px 5px;
+            margin-left: 10px;
+            background-color: #ff6666; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-item-btn:hover {
+            background-color: #d95555;
+        }
+
+    </style>
+</head>
+
+<body>
+    <script>
+        function addToCart() {
+            const productName = "Назва товару"
+            const productPrice = "280₴"
+            const cartItems = document.getElementById('cart-items');
+            const cartCount = document.getElementById('cart-count');
+            const checkoutBtn = document.querySelector('.cart-checkout-btn');
+    
+            const li = document.createElement('li');
+            li.textContent = `${productName} - ${productPrice} `;
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Видалити';
+            removeBtn.classList.add('remove-item-btn');
+            removeBtn.onclick = function() {
+                li.remove();
+                cartCount.textContent = parseInt(cartCount.textContent) - 1;
+                if (cartItems.children.length === 0) {
+                    document.querySelector('.cart-dropdown').style.display = 'none'; // Hide cart dropdown if empty
+                }
+            };
+            li.appendChild(removeBtn);
+            cartItems.appendChild(li);
+    
+            cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            if (cartItems.children.length > 0) {
+                checkoutBtn.classList.remove('disabled');
+                document.querySelector('.cart-dropdown').style.display = 'block'; // Show cart dropdown
+            }
+        }
+    </script>
+
+    <header>
+        <h1>3DShop</h1>
+        <nav>
+            <a href="#" class="active">Каталог</a>
+            <a href="#">Про нас</a>
+        </nav>
+        <div>
+            <span>🔍</span>
+            <span>❤️</span>
+            <div id="cart">
+                <span>🛍️ Кошик (<span id="cart-count">0</span>)</span>
+                <div class="cart-dropdown" style="display: none;">
+                    <ul id="cart-items">
+                        <!--Item list goes here-->
+                    </ul>
+                    <button class="cart-checkout-btn disabled" onclick="checkout()">Перейти до оплати</button>
+                </div>
+            </div>  
+        </div>
+    </header>
+
+    <div class="product-container">
+        <div class="image-gallery">
+            <img src="DefaultImageBig.png" alt="Product Image" class="image-gallery-main">
+            <div class="image-gallery-thumbnails">
+                <span class="arrow">‹</span>
+                <img src="DefaultImage.png" alt="Thumbnail" class="thumbnail">
+                <img src="DefaultImage.png" alt="Thumbnail" class="thumbnail">
+                <img src="DefaultImage.png" alt="Thumbnail" class="thumbnail">
+                <img src="DefaultImage.png" alt="Thumbnail" class="thumbnail">
+                <span class="arrow">›</span>
+            </div>
+        </div>
+        <div class="product-details">
+            <h2>Сопло MK10 M7</h2>
+            <ul>
+                <li>Код товару: MK10 M7</li>
+                <li>Крок різьби: M7</li>
+                <li>Матеріал: Латунь</li>
+                <li>Доступність: В наявності</li>
+            </ul>
+            <div class="price">55 ГРН</div>
+            <button class="add-to-cart-btn" onclick="addToCart()">В Корзину</button>
+        </div>
+    </div>
+
+    <div class="product-tabs">
+        <ul class="tab-links">
+            <li><a class="active">Опис товару</a></li>
+            <li><a>Характеристики</a></li>
+        </ul>
+        <div class="tab-content" id="description">
+            <h3>Опис товару</h3>
+            <p>Сопло MK10 M7 є стандартним соплом, яке широко використовується в багатьох 3D-принтерах з головкою MK10. Це дозволяє використовувати такі сопла з різними 3D принтерами, включаючи принтери різних виробників.
+                Латунні сопла MK10 M7 для 3D принтера представлені різними діаметрами: 0,4 мм, 0,6 мм, 0,8 мм. Призначені для монониток діаметром 1.75 мм.
+                <br>Змінивши сопло з більшого діаметра на менший, ви можете збільшити точність і якість друкованого виробу, але при цьому збільшивши час 3D друку. І навпаки - якщо висока якість виробу не є пріоритетним, то можна використовувати сопло більшого діаметра, що дозволить прискорити процес 3D друку і скоротити час.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

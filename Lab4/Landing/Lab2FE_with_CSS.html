@@ -4,8 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Магазин 3D принтерів</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        #searchForm {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        #searchForm input[type="text"] {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        #searchForm button {
+            padding: 5px 10px;
+        }
+    </style>
 </head>
+<link rel="stylesheet" href="styles.css">
 <body>
+<script>
+    function searchText() {
+        var text = document.getElementById('textInput').value;
+        var search = document.getElementById('searchInput').value;
+        var result = "";
+
+        if (!text.trim() || !search.trim()) {
+            alert('Будь ласка, введіть текст та шукані літери.');
+            return;
+        }
+
+        var words = text.split(/\s+/);
+        var foundWords = words.filter(word => word.includes(search));
+
+        if (foundWords.length > 0) {
+            result = 'Слова з збігами: ' + foundWords.join(', ');
+        } else {
+            result = 'Збігів не знайдено.';
+        }
+
+        alert(result);
+    }
+</script>
 
 <header>
     <h1>Магазин 3D принтерів</h1>
@@ -21,6 +76,11 @@
 </header>
 
 <main>
+        <div id="searchForm">
+        <textarea type="text" id="textInput" placeholder="Введіть текст для пошуку"></textarea>
+        <input type="text" id="searchInput" placeholder="Літери для пошуку">
+        <button onclick="searchText()">Пошук</button>
+    </div>
     <section id="section1">
         <h2>Про нас</h2>
         <p>Ми спеціалізуємося на продажу <em>інноваційних 3D принтерів</em>. <i>Наша місія - зробити 3D друк доступним для кожного.</i></p>
@@ -48,12 +108,6 @@
                 <tr>
                     <td>Model A</td>
                     <td>$1000</td>
-                    <td>100mm/s</td>
-                    <td>PLA</td>
-                    <td>4.5</td>
-                </tr>
-                <tr>
-                    <td colspan="2">ABC</td>
                     <td>100mm/s</td>
                     <td>PLA</td>
                     <td>4.5</td>
@@ -86,18 +140,13 @@
     </section>
 </main>
 <aside>
-    <h2>Останні новини</h2>
+    <h2 cless="fixed-element">Останні новини</h2>
     <p>Оголошення про випуск нової моделі 3D принтера! <a href="https://news.com">Читати більше</a></p>
+    <h3>Додаткові новини</h3>
+    <p>Наша компанія продовжує інноваційні розробки у сфері 3D друку. Ми плануємо випустити нові моделі принтерів, які зможуть друкувати з більшою точністю та швидкістю.</p>
+    <p>Також ми працюємо над створенням екологічних матеріалів для 3D друку, що будуть повністю біорозкладними та безпечними для навколишнього середовища.</p>
+    <p>Підписуйтесь на наші новини, щоб першими дізнаватися про останні досягнення у сфері високих технологій.</p>
 </aside>
-
-<footer>
-    <h2>Контактна інформація</h2>
-    <address>
-        Адреса: вул. Вигадана, 69, Київ, Україна<br>
-        Телефон: +380123456789<br>
-        Email: <a href="mailto:info@3dprintershop.com">info@3dprintershop.com</a>
-    </address>
-</footer>
 
 <form>
     <h2>Форма зворотнього зв'язку</h2>
@@ -112,6 +161,15 @@
     <label for="consent">Згода на обробку інформації</label>
     <button type="submit">Відправити</button>
 </form>
+
+<footer>
+    <h2>Контактна інформація</h2>
+    <address>
+        Адреса: вул. Вигадана, 69, Київ, Україна<br>
+        Телефон: +380123456789<br>
+        Email: <a href="mailto:info@3dprintershop.com">info@3dprintershop.com</a>
+    </address>
+</footer>
 
 </body>
 </html>

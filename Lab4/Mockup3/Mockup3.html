@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3DShop Admin</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <script>
+        function addVariant() {
+            var variantValue = document.getElementById('new-option-value').value;
+            if (variantValue.trim() === '') return; // Не додавати пусті варіанти
+    
+            var variantChip = document.createElement('div');
+            variantChip.className = 'option-chip';
+            variantChip.textContent = variantValue;
+            
+            var removeSpan = document.createElement('span');
+            removeSpan.textContent = '✖';
+            removeSpan.onclick = function() { this.parentNode.remove(); };
+            variantChip.appendChild(removeSpan);
+    
+            document.getElementById('variants-container').appendChild(variantChip);
+    
+            // Очищення поля вводу після додавання варіанту
+            document.getElementById('new-option-value').value = '';
+        }
+    </script>
+
+    <header>
+        <h1>3DShop</h1>
+        <nav>
+            <a href="#">Меню</a>
+        </nav>
+    </header>
+
+    <div class="form-container">
+        <div class="form-fields">
+            <h2>Новий товар</h2>
+
+            <div class="input-group">
+                <label for="product-name">Назва</label>
+                <input type="text" id="product-name" name="product-name" placeholder="Введіть назву товару">
+            </div>
+
+            <div class="input-row">
+                <div class="input-group">
+                    <label for="product-sku">Артикул</label>
+                    <input type="text" id="product-sku" name="product-sku" placeholder="Введіть артикул">
+                </div>
+
+                <div class="input-group">
+                    <label for="product-quantity">Наявність</label>
+                    <input type="number" id="product-quantity" name="product-quantity" placeholder="Введіть кількість">
+                </div>
+
+                <div class="input-group">
+                    <label for="product-price">Ціна</label>
+                    <input type="text" id="product-price" name="product-price" placeholder="Введіть ціну">
+                </div>
+            </div>
+            <label for="product-option">Опція</label>
+            <div class="input-group input-with-button">
+                <input type="text" id="product-option" name="product-option" placeholder="Введіть опцію">
+                <button class="button">Додати</button>
+            </div>
+
+            <h3>Додана опція 1</h3>
+            <label for="product-option">Додати варіант</label>
+            <div class="input-group input-with-button">
+                <input type="text" id="new-option-value" name="product-option" placeholder="Введіть новий варіант">
+                <button class="button" onclick="addVariant()">Додати</button>
+            </div>
+            <div class="input-group" id="variants-container">
+            </div>
+
+            <div class="input-group">
+                <label for="product-description">Опис</label>
+                <textarea id="product-description" name="product-description" placeholder="Введіть опис товару"></textarea>
+            </div>
+        </div>
+
+        <div class="image-placeholder-and-next-button">
+            <div class="image-placeholder">
+                <div class="file-upload-placeholder">Додати фото</div>
+            </div>
+            <button type="submit" class="button next-button">Наступний</button>
+        </div>
+    </div>
+
+</body>
+
+</html>
